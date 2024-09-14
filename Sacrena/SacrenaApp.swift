@@ -29,7 +29,7 @@ struct SacrenaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ChatView(chatClient: chatClient)
+            ChatListView()
                 .preferredColorScheme(.dark)
                 .environmentObject(manager)
         }

@@ -11,7 +11,7 @@ struct messageTail: Shape {
     var from: Bool
     
     func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft, .topRight, from ? .bottomLeft : .bottomRight], cornerRadii: CGSize(width: 20, height: 20))
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft, .topRight, from ? .bottomLeft : .bottomRight], cornerRadii: CGSize(width: 15, height: 15))
         return Path(path.cgPath)
     }
 }

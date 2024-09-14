@@ -10,7 +10,8 @@ import Foundation
 typealias DefaultHandler = (() -> ())
 typealias GenericHandler<T> = (T?, Error?) -> Void
 
-public let apiKeyString = "c5nva4scz89s"
+public let apiKeyString = "zcgvnykxsfm8"
+public let userId: String = "general_grievous"
 
 public struct UserCredentials {
     let id: String
@@ -26,10 +27,10 @@ extension UserCredentials {
         credential
     }
 
-    static let credential: UserCredentials = UserCredentials(id: "tutorial-droid",
+    static let credential: UserCredentials = UserCredentials(id: userId,
                                                        name: "Ganesh Raju Galla",
                                                        avatarURL: URL(string: "https://vignette.wikia.nocookie.net/starwars/images/2/20/LukeTLJ.jpg")!,
-                                                       token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYzVudmE0c2N6ODlzIn0.jSY799QRTRrv_3BZcEbvj-s4GD1KvfDne_LOrcEVWIU",
+                                                       token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZ2VuZXJhbF9ncmlldm91cyJ9.g2UUZdENuacFIxhYCylBuDJZUZ2x59MTWaSpndWGCTU",
                                                        birthLand: "India")
 
 }

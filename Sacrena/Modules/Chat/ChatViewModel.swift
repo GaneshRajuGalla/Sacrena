@@ -6,6 +6,7 @@
 //
 import Combine
 import StreamChat
+import Foundation
 
 class ChatViewModel: ObservableObject, ChatChannelControllerDelegate {
     
@@ -13,12 +14,17 @@ class ChatViewModel: ObservableObject, ChatChannelControllerDelegate {
     @Published var text = ""
     
     private let channelController: ChatChannelController
-    private var loadingPreviousMessages = false
+    var loadingPreviousMessages = false
     private var cancellables = Set<AnyCancellable>()
+    let channel: ChatChannel
+    let chatClient: ChatClient
+    var sentSuccessHandler:DefaultHandler? = nil
     
-    init(chatClient: ChatClient) {
+    init(chatClient: ChatClient, channel: ChatChannel) {
+        self.channel = channel
+        self.chatClient = chatClient
         channelController = chatClient.channelController(
-            for: try! ChannelId(cid: "messaging:5A9427AD-E")
+            for: try! ChannelId(cid: channel.id)
         )
         channelController.delegate = self
         channelController.synchronize { [weak self] error in
@@ -35,6 +41,7 @@ class ChatViewModel: ObservableObject, ChatChannelControllerDelegate {
     func sendMessage() {
         channelController.createNewMessage(text: text)
         text = ""
+        sentSuccessHandler?()
     }
     
     func handleMessageAppear(index: Int) {

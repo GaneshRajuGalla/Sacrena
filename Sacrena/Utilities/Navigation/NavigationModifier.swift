@@ -17,8 +17,8 @@ struct NavigationModifier: ViewModifier {
     @ViewBuilder
     fileprivate func coordinator(route: Routes) -> some View{
         switch route {
-        case .chat(let chatClient):
-           ChatView(chatClient: chatClient)
+        case .chat(let chatClient, let channel):
+            ChatView(chatClient: chatClient, channel: channel)
         }
     }
     

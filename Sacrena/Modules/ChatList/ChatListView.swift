@@ -37,7 +37,7 @@ extension ChatListView {
                 ForEach(viewModel.channels) { channel in
                     chatListItem(channel)
                         .onTapGesture {
-                            manager.push(route: .chat(chatClient))
+                            manager.push(route: .chat(chatClient, channel))
                         }
                 }
             }
@@ -46,27 +46,29 @@ extension ChatListView {
     
     @ViewBuilder
     private func chatListItem(_ channel: ChatChannel) -> some View {
-        VStack(spacing: 2){
+        VStack {
             HStack {
                 if let imageURL = viewModel.imageURL(for: channel) {
-                    StreamLazyImage(url: imageURL)
+                    StreamLazyImage(url: imageURL, size: CGSize(width: 60, height: 60))
                 } else {
                     Circle()
                         .fill(Color.gray)
-                        .frame(width: 30)
+                        .frame(width: 60)
                 }
                 VStack(alignment: .leading) {
                     Text(DefaultChatChannelNamer()(channel, chatClient.currentUserId) ?? "")
+                        .textStyle(color: .white, font: .headline, weight: .bold)
                         .lineLimit(1)
-                        .bold()
                     Text("\(channel.previewMessage?.text ?? "No messages")")
-                        .font(.caption)
+                        .textStyle(color: (channel.unreadCount.messages > 0) ? Color.white.opacity(0.5) : Color.white.opacity(0.4), font: .subheadline, alignment: .leading)
+                        .lineLimit(2)
                 }
                 Spacer()
             }
-            .padding(.horizontal)
+            .padding(.vertical, 7)
             Divider()
         }
+        .padding(.horizontal)
         .onAppear {
             if let index = viewModel.channels.firstIndex(where: { chatChannel in
                 chatChannel.id == channel.id

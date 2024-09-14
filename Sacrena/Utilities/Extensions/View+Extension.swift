@@ -18,5 +18,10 @@ extension View {
                    alignment: TextAlignment = .center) -> some View {
         self.modifier(TextStyleModifier(color: color, font: font, weight: weight, alignment: alignment))
     }
+    
+    func flipped() -> some View {
+        self.rotationEffect(.radians(Double.pi))
+            .scaleEffect(x: -1, y: 1, anchor: .center)
+    }
 }
     

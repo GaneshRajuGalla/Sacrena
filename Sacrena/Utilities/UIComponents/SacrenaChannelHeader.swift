@@ -12,13 +12,10 @@ import StreamChatSwiftUI
 struct SacrenaChannelHeader: ToolbarContent {
     
     // MARK: - Properties
-    @ObservedObject private var channelHeaderLoader = InjectedValues[\.utils].channelHeaderLoader
-    @Injected(\.chatClient) var chatClient
+    let channel: ChatChannel
+    let chatClient: ChatClient
     @Injected(\.utils) var utils
-    @Injected(\.fonts) var fonts
-    @Injected(\.colors) var colors
-
-    var channel: ChatChannel
+    let completion: DefaultHandler?
     
     private var currentUserId: String {
         chatClient.currentUserId ?? ""
@@ -30,15 +27,27 @@ struct SacrenaChannelHeader: ToolbarContent {
 
     // MARK: - Body
     var body: some ToolbarContent {
-        ToolbarItem(placement: .principal) {
-            HStack {
-                ChannelAvatarView(
-                    avatar: channelHeaderLoader.image(for: channel),
-                    showOnlineIndicator: false,
-                    size: CGSize(width: 36, height: 36)
-                )
-                Text(channelNamer(channel, currentUserId) ?? "")
-                    .font(fonts.bodyBold)
+        ToolbarItem(placement: .topBarLeading) {
+            HStack(spacing: 10){
+                Button(action: {
+                    completion?()
+                }, label: {
+                    Image(systemName: "chevron.backward")
+                        .foregroundStyle(.white)
+                })
+                
+                HStack {
+                    if let imageURL = imageURL(for: channel) {
+                        StreamLazyImage(url: imageURL, size: CGSize(width: 36, height: 36))
+                    } else {
+                        Circle()
+                            .fill(Color.gray)
+                            .frame(width: 36, height: 36)
+                    }
+                    Text(channelNamer(channel, currentUserId) ?? "")
+                        .textStyle(color: .white, font: .headline, weight: .bold)
+                    Spacer()
+                }
             }
         }
         ToolbarItem(placement: .topBarTrailing) {
@@ -46,7 +55,14 @@ struct SacrenaChannelHeader: ToolbarContent {
                 print("tapped on More")
             }, label: {
                 Image(systemName: "ellipsis")
+                    .foregroundStyle(.white)
             })
         }
+    }
+    
+    func imageURL(for channel: ChatChannel) -> URL? {
+        channel.lastActiveMembers.first(where: { member in
+            member.id != chatClient.currentUserId
+        })?.imageURL
     }
 }

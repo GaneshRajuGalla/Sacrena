@@ -11,9 +11,7 @@
 		6E9223DF2C9544B400EE6891 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9223DE2C9544B400EE6891 /* Constants.swift */; };
 		6E9223E32C95450500EE6891 /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9223E22C95450500EE6891 /* ChatListView.swift */; };
 		6E9223E52C95451300EE6891 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9223E42C95451300EE6891 /* ChatView.swift */; };
-		6E9223E72C954DFC00EE6891 /* CustomFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9223E62C954DFC00EE6891 /* CustomFactory.swift */; };
 		6E9223EA2C9557ED00EE6891 /* SacrenaChannelHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9223E92C9557ED00EE6891 /* SacrenaChannelHeader.swift */; };
-		6E9223ED2C955A7300EE6891 /* SacrenaChannelHeaderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9223EC2C955A7300EE6891 /* SacrenaChannelHeaderModifier.swift */; };
 		6E9223F12C955C1700EE6891 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9223F02C955C1700EE6891 /* ChatListViewModel.swift */; };
 		6E9223F32C95702000EE6891 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9223F22C95702000EE6891 /* ChatViewModel.swift */; };
 		6E9223F62C9573E800EE6891 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9223F52C9573E800EE6891 /* Routes.swift */; };
@@ -34,6 +32,7 @@
 		6E9730752C9337E700C690C4 /* SacrenaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9730742C9337E700C690C4 /* SacrenaUITests.swift */; };
 		6E9730772C9337E700C690C4 /* SacrenaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9730762C9337E700C690C4 /* SacrenaUITestsLaunchTests.swift */; };
 		6E9730872C933A6300C690C4 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E9730862C933A6300C690C4 /* Colors.xcassets */; };
+		6EF06B802C95B77000B6FECC /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF06B7F2C95B77000B6FECC /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,9 +56,7 @@
 		6E9223DE2C9544B400EE6891 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6E9223E22C95450500EE6891 /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
 		6E9223E42C95451300EE6891 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		6E9223E62C954DFC00EE6891 /* CustomFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFactory.swift; sourceTree = "<group>"; };
 		6E9223E92C9557ED00EE6891 /* SacrenaChannelHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SacrenaChannelHeader.swift; sourceTree = "<group>"; };
-		6E9223EC2C955A7300EE6891 /* SacrenaChannelHeaderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SacrenaChannelHeaderModifier.swift; sourceTree = "<group>"; };
 		6E9223F02C955C1700EE6891 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		6E9223F22C95702000EE6891 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		6E9223F52C9573E800EE6891 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
@@ -83,6 +80,7 @@
 		6E9730742C9337E700C690C4 /* SacrenaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SacrenaUITests.swift; sourceTree = "<group>"; };
 		6E9730762C9337E700C690C4 /* SacrenaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SacrenaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6E9730862C933A6300C690C4 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		6EF06B7F2C95B77000B6FECC /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				6E9223DE2C9544B400EE6891 /* Constants.swift */,
-				6E9223E62C954DFC00EE6891 /* CustomFactory.swift */,
 				6E9224022C957A2200EE6891 /* PermissionsManager.swift */,
 			);
 			path = Helpers;
@@ -152,7 +149,6 @@
 		6E9223EB2C955A4A00EE6891 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
-				6E9223EC2C955A7300EE6891 /* SacrenaChannelHeaderModifier.swift */,
 				6E9223F92C95748400EE6891 /* BackToView.swift */,
 				6E92240C2C9587A300EE6891 /* TextStyleModifier.swift */,
 			);
@@ -173,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				6E9223FE2C9575CA00EE6891 /* View+Extension.swift */,
+				6EF06B7F2C95B77000B6FECC /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -420,14 +417,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E9224012C9577E600EE6891 /* BackgroundView.swift in Sources */,
-				6E9223E72C954DFC00EE6891 /* CustomFactory.swift in Sources */,
 				6E97305A2C9337E400C690C4 /* SacrenaApp.swift in Sources */,
 				6E9223FA2C95748400EE6891 /* BackToView.swift in Sources */,
 				6E9223E52C95451300EE6891 /* ChatView.swift in Sources */,
 				6E9223E32C95450500EE6891 /* ChatListView.swift in Sources */,
 				6E9223F12C955C1700EE6891 /* ChatListViewModel.swift in Sources */,
 				6E9223EA2C9557ED00EE6891 /* SacrenaChannelHeader.swift in Sources */,
-				6E9223ED2C955A7300EE6891 /* SacrenaChannelHeaderModifier.swift in Sources */,
 				6E9223F62C9573E800EE6891 /* Routes.swift in Sources */,
 				6E9224032C957A2200EE6891 /* PermissionsManager.swift in Sources */,
 				6E92240B2C95861700EE6891 /* MessageView.swift in Sources */,
@@ -438,6 +433,7 @@
 				6E9223FC2C9574AE00EE6891 /* NavigationManager.swift in Sources */,
 				6E9223FF2C9575CA00EE6891 /* View+Extension.swift in Sources */,
 				6E9223DF2C9544B400EE6891 /* Constants.swift in Sources */,
+				6EF06B802C95B77000B6FECC /* Date+Extension.swift in Sources */,
 				6E9224062C957B4800EE6891 /* ImagePickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

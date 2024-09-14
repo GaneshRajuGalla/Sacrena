@@ -22,6 +22,6 @@ enum Routes: Hashable{
         return lhs.identifier == rhs.identifier
     }
         
-    case chat(ChatClient)
+    case chat(ChatClient, ChatChannel)
 }
 
