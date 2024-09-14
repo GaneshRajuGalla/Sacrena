@@ -59,7 +59,7 @@ To get started with Sacrena, follow these simple steps:
 5. Open the HTML file in an editor and set the required variables (`apiKey`, `bobUserId`, `userToken`, etc.). You can find the file here: 
 
     <marquee behavior="scroll" direction="left">
-    <a href="Sacrena/Files/Bob.html">Bob.html</a>.
+    <a href="Secrena/Files/Bob.html">Bob.html</a>
     </marquee>
 
 6. Once everything is set, open the HTML in your browser. As soon as you load it, a message will be sent to Alice. You can check the browser's console logs to verify the message.
