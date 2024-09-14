@@ -28,7 +28,11 @@ struct ChatView: View {
             Color("background")
                 .ignoresSafeArea()
             VStack {
-                contentView
+                if !viewModel.messages.isEmpty {
+                    contentView
+                } else {
+                    emptyView
+                }
                 composerView
             }
         }
@@ -151,6 +155,18 @@ extension ChatView {
             }
         }
         .padding(.horizontal)
+    }
+    
+    @ViewBuilder
+    private var emptyView: some View {
+        Spacer()
+        HStack {
+            Spacer()
+            Text("This is the begining of your conversation with \(viewModel.channel.name ?? "").")
+                .textStyle(color: .secondary, font: .subheadline)
+            Spacer()
+        }
+        Spacer()
     }
 }
 
