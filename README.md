@@ -8,9 +8,9 @@
 | ChatEmpty | Chat | TextField |
 | -- | -- | -- |
 | <img src="Secrena/Media/ChatEmpty.png" width="200"> | <img src="Secrena/Media/Chat.png" width="200"> | <img src="Secrena/Media/TextField.png" width="200">
-| Camera 
-| -- |
-| <img src="Secrena/Media/Camera.png" width="200">  |
+| Permission | Camera 
+| -- | -- 
+| <img src="Secrena/Media/Camera.png" width="200"> | <img src="Secrena/Media/Permission.png" width="200">
 
 ## Overview
 
