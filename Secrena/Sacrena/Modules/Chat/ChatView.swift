@@ -36,6 +36,7 @@ struct ChatView: View {
                     }
                 }
                 composerView
+                    .padding(.bottom, 10)
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -43,6 +44,15 @@ struct ChatView: View {
             SacrenaChannelHeader(channel: viewModel.channel, chatClient: viewModel.chatClient, completion: {
                 manager.popLast()
             })
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button("Done") {
+                        isTextFieldFocus = false
+                    }
+                    .foregroundColor(Color("AccentColor"))
+                }
+            }
         }
         .fullScreenCover(isPresented: $openCamera) {
             ImagePickerView { result in

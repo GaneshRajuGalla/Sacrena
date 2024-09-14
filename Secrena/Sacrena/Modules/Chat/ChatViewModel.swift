@@ -14,7 +14,7 @@ class ChatViewModel: ObservableObject, ChatChannelControllerDelegate {
     @Published var messages = LazyCachedMapCollection<ChatMessage>()
     @Published var text = ""
     private let channelController: ChatChannelController
-    var loadingPreviousMessages = false
+    @Published var loadingPreviousMessages = false
     private var cancellables = Set<AnyCancellable>()
     let channel: ChatChannel
     let chatClient: ChatClient
