@@ -4,7 +4,7 @@
 
 | Launch | ChatListEmpty | ChatList |
 | -- | -- | -- |
-| <img src="Secrena/Media/LaunchScreen.png" width="200"> | <img src="Secrena/Media/ChatEmpty.png" width="200"> | <img src="Secrena/Media/ChatList.png" width="200"> 
+| <img src="Secrena/Media/LaunchScreen.png" width="200"> | <img src="Secrena/Media/ChatListEmpty.png" width="200"> | <img src="Secrena/Media/ChatList.png" width="200"> 
 | ChatEmpty | Chat | TextField |
 | -- | -- | -- |
 | <img src="Secrena/Media/ChatEmpty.png" width="200"> | <img src="Secrena/Media/Chat.png" width="200"> | <img src="Secrena/Media/TextField.png" width="200">
