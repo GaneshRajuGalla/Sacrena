@@ -56,9 +56,9 @@ To get started with Sacrena, follow these simple steps:
 3. Build and run the app on your iOS device or simulator.
 
 4. For Bob (using the web version), use the following HTML code to set up chat communication.
-
+5. Open the HTML file in an editor and set the required variables (`apiKey`, `bobUserId`, `userToken`, etc.). You can find the file here: 
 <marquee behavior="scroll" direction="left">
-Open the HTML file in an editor and set the required variables (`apiKey`, `bobUserId`, `userToken`, etc.). You can find the file here: <a href="Sacrena/Files/Bob.html">Bob.html</a>.
+<a href="Sacrena/Files/Bob.html">Bob.html</a>.
 </marquee>
 
 5. Once everything is set, open the HTML in your browser. As soon as you load it, a message will be sent to Alice. You can check the browser's console logs to verify the message.
