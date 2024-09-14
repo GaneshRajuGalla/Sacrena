@@ -36,9 +36,11 @@ struct MessageView: View {
                 contentView
                 Text(message.updatedAt.formattedString(using: .timeOnly))
                     .font(.system(size: 8))
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.black.opacity(0.5))
             }
-            .padding(.all, 15)
+            .padding(.top, 5)
+            .padding(.horizontal, 10)
+            .padding(.bottom, 15)
             .background(!isSentByCurrentUser ? .white : Color("AccentColor"))
             .clipShape(messageTail(from: isSentByCurrentUser))
         }

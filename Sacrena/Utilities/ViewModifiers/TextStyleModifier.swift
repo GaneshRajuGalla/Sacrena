@@ -12,10 +12,11 @@ struct TextStyleModifier: ViewModifier {
     let font: Font
     let weight: Font.Weight
     let alignment: TextAlignment
-
+    
     func body(content: Content) -> some View {
         content
             .font(font.weight(weight))
+            .fontDesign(.monospaced)
             .foregroundColor(color)
             .multilineTextAlignment(alignment)
             .fixedSize(horizontal: false, vertical: true)

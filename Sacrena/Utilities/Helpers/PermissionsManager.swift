@@ -13,11 +13,11 @@ class PermissionsManager {
         case camera
         case photoLibrary
     }
-
+    
     enum PermissionStatus {
         case notDetermined, restricted, denied, authorized
     }
-
+    
     static func requestPermission(type: PermissionType, completion: @escaping (PermissionStatus) -> Void) {
         switch type {
         case .camera:

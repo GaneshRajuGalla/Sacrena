@@ -11,7 +11,7 @@ class NavigationManager: ObservableObject{
     
     // MARK: - Properties
     @Published var chatRoutes:[Routes] = []
-       
+    
     
     func popLast() {
         if !chatRoutes.isEmpty {

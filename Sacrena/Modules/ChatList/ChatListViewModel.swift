@@ -11,19 +11,14 @@ import SwiftUI
 
 class ChatListViewModel: ObservableObject, ChatChannelListControllerDelegate {
     
+    // MARK: - Properties
     @Injected(\.chatClient) var chatClient
-    
-    @Published public var channels = LazyCachedMapCollection<ChatChannel>() {
-        didSet {
-            print("channels.count", channels.count)
-        }
-    }
-    
+    @Published public var channels = LazyCachedMapCollection<ChatChannel>()
     public private(set) var loadingNextChannels: Bool = false
-    
     private var controller: ChatChannelListController?
     private var timer: Timer?
     
+    // MARK: - Init
     init() {
         setupChannelListController()
     }
@@ -39,7 +34,7 @@ class ChatListViewModel: ObservableObject, ChatChannelListControllerDelegate {
         if index < (controller?.channels.count ?? 0) - 15 {
             return
         }
-
+        
         if !loadingNextChannels {
             loadingNextChannels = true
             controller?.loadNextChannels(limit: 30) { [weak self] _ in
@@ -69,11 +64,8 @@ class ChatListViewModel: ObservableObject, ChatChannelListControllerDelegate {
         controller = chatClient.channelListController(
             query: .init(filter: .containMembers(userIds: [currentUserId]))
         )
-        
         controller?.delegate = self
-
         updateChannels()
-
         controller?.synchronize { [weak self] error in
             guard let self = self else { return }
             if error != nil {

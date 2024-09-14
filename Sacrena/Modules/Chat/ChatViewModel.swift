@@ -10,9 +10,9 @@ import Foundation
 
 class ChatViewModel: ObservableObject, ChatChannelControllerDelegate {
     
+    // MARK: - Properties
     @Published var messages = LazyCachedMapCollection<ChatMessage>()
     @Published var text = ""
-    
     private let channelController: ChatChannelController
     var loadingPreviousMessages = false
     private var cancellables = Set<AnyCancellable>()
@@ -20,6 +20,7 @@ class ChatViewModel: ObservableObject, ChatChannelControllerDelegate {
     let chatClient: ChatClient
     var sentSuccessHandler:DefaultHandler? = nil
     
+    // MARK: - Init
     init(chatClient: ChatClient, channel: ChatChannel) {
         self.channel = channel
         self.chatClient = chatClient
@@ -58,7 +59,7 @@ class ChatViewModel: ObservableObject, ChatChannelControllerDelegate {
         if index < messages.count - 25 {
             return
         }
-
+        
         if !loadingPreviousMessages {
             loadingPreviousMessages = true
             channelController.loadPreviousMessages(

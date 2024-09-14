@@ -8,15 +8,15 @@
 import Foundation
 
 enum DateFormatStyle {
-       case timeOnly // "h:mm a"
-       
-       var format: String {
-           switch self {
-           case .timeOnly:
-               return "h:mm a"
-           }
-       }
-   }
+    case timeOnly // "h:mm a"
+    
+    var format: String {
+        switch self {
+        case .timeOnly:
+            return "h:mm a"
+        }
+    }
+}
 
 extension Date {
     func formattedString(using style: DateFormatStyle) -> String {

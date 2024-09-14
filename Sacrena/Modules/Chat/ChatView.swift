@@ -28,10 +28,12 @@ struct ChatView: View {
             Color("background")
                 .ignoresSafeArea()
             VStack {
-                if !viewModel.messages.isEmpty {
-                    contentView
-                } else {
-                    emptyView
+                Group {
+                    if !viewModel.messages.isEmpty {
+                        contentView
+                    } else {
+                        contentUnavailableView
+                    }
                 }
                 composerView
             }
@@ -135,6 +137,7 @@ extension ChatView {
                     .foregroundColor(Color.primary)
                     .frame(maxWidth: .infinity)
                     .focused($isTextFieldFocus)
+                    .fontDesign(.monospaced)
                     .background(content: {
                         BackgroundView(color: .clear)
                     })
@@ -149,28 +152,31 @@ extension ChatView {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 30,height: 30)
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(viewModel.text.isEmpty ? .gray : Color("AccentColor"))
                 })
                 .disabled(viewModel.text.isEmpty)
             }
         }
         .padding(.horizontal)
     }
-    
-    @ViewBuilder
-    private var emptyView: some View {
-        Spacer()
-        HStack {
-            Spacer()
-            Text("This is the begining of your conversation with \(viewModel.channel.name ?? "").")
-                .textStyle(color: .secondary, font: .subheadline)
-            Spacer()
-        }
-        Spacer()
-    }
 }
 
 extension ChatView {
+    
+    @ViewBuilder
+    private var contentUnavailableView: some View {
+        ContentUnavailableView(label: {
+            Label(
+                title: {
+                    Text("This is the begining of your conversation with \(viewModel.channel.name ?? "").")
+                        .textStyle(color: .gray, font: .subheadline)
+                },
+                icon: {
+                    Image(systemName: "")
+                }
+            )
+        })
+    }
     
     private func scrollToBottom()  {
         guard let message = viewModel.messages.first else { return }

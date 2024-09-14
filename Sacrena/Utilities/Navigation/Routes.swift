@@ -21,7 +21,7 @@ enum Routes: Hashable{
     public static func == (lhs: Routes, rhs: Routes) -> Bool {
         return lhs.identifier == rhs.identifier
     }
-        
+    
     case chat(ChatClient, ChatChannel)
 }
 

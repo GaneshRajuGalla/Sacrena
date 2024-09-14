@@ -24,7 +24,7 @@ struct SacrenaChannelHeader: ToolbarContent {
     private var channelNamer: ChatChannelNamer {
         utils.channelNamer
     }
-
+    
     // MARK: - Body
     var body: some ToolbarContent {
         ToolbarItem(placement: .topBarLeading) {
@@ -46,9 +46,11 @@ struct SacrenaChannelHeader: ToolbarContent {
                     }
                     Text(channelNamer(channel, currentUserId) ?? "")
                         .textStyle(color: .white, font: .headline, weight: .bold)
-                    Spacer()
+                        .lineLimit(1)
+                        .truncationMode(.tail)
                 }
             }
+            .padding(.trailing)
         }
         ToolbarItem(placement: .topBarTrailing) {
             Button(action: {

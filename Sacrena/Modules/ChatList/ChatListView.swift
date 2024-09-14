@@ -20,10 +20,16 @@ struct ChatListView: View {
         ZStack {
             Color("background")
                 .ignoresSafeArea()
-            contentView
+            Group {
+                if !viewModel.channels.isEmpty {
+                    contentView
+                } else {
+                    contentUnavailableView
+                }
+            }
         }
         .navigationTitle("Connections")
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.automatic)
         .navigation(path: $manager.chatRoutes)
     }
 }
@@ -76,5 +82,20 @@ extension ChatListView {
                 viewModel.checkForChannels(index: index)
             }
         }
+    }
+    
+    @ViewBuilder
+    private var contentUnavailableView: some View {
+        ContentUnavailableView(label: {
+            Label(
+                title: {
+                    Text("This is the begining of your chat.")
+                        .textStyle(color: .gray, font: .subheadline)
+                },
+                icon: {
+                    Image(systemName: "")
+                }
+            )
+        })
     }
 }
