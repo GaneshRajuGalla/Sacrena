@@ -22,11 +22,7 @@ extension Date {
     func formattedString(using style: DateFormatStyle) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = style.format
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         return dateFormatter.string(from: self)
-    }
-    
-    func isSameDay(as otherDate: Date) -> Bool {
-        let calendar = Calendar.current
-        return calendar.isDate(self, inSameDayAs: otherDate)
     }
 }

@@ -125,7 +125,7 @@ extension ChatView {
                         .frame(width: 30,height: 30)
                         .foregroundStyle(.white)
                 })
-                TextField("Message", text: $viewModel.text)
+                TextField("Message", text: $viewModel.text, axis: .vertical)
                     .padding(10)
                     .tint(Color.gray)
                     .foregroundColor(Color.primary)

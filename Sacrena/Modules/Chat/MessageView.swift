@@ -32,10 +32,13 @@ struct MessageView: View {
                         .frame(width: 45)
                 }
             }
-            VStack(spacing: 2) {
+            VStack(alignment: .trailing, spacing: 0) {
                 contentView
+                Text(message.updatedAt.formattedString(using: .timeOnly))
+                    .font(.system(size: 8))
+                    .foregroundStyle(.black)
             }
-            .padding(.all)
+            .padding(.all, 15)
             .background(!isSentByCurrentUser ? .white : Color("AccentColor"))
             .clipShape(messageTail(from: isSentByCurrentUser))
         }
